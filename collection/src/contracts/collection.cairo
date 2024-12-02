@@ -1,4 +1,4 @@
-use tcg_collection::models::mint_info::MintInfo;
+use tcg_collection::models::mint::MintInfo;
 #[starknet::interface]
 pub trait ICollection<TContractState> {
     fn mint(ref self: TContractState, mint_info: MintInfo, signature_r: felt252, signature_s: felt252) -> u256;
@@ -14,7 +14,7 @@ mod Collection {
         ownable::OwnableComponent,
         upgradeable::UpgradeableComponent,
     };
-    use tcg_collection::models::mint_info::{Mint, MintInfo, MintInfoTrait};
+    use tcg_collection::models::mint::{Mint, MintInfo, MintInfoTrait};
 
     component!(path: ERC721Component, storage: ERC721Storage, event: ERC721Event);
     component!(path: SRC5Component, storage: SRC5Storage, event: SRC5Event);
@@ -102,7 +102,7 @@ mod Collection {
     impl ICollectionImpl of super::ICollection<ContractState> {
         fn mint(ref self: ContractState, mint_info: MintInfo, signature_r: felt252, signature_s: felt252) -> u256 {
             let mint = MintInfoTrait::verify_signature(mint_info, signature_r, signature_s);
-            self.ERC721Storage._mint(mint.owner, mint.token_id);
+            self.ERC721Storage.mint(mint.owner, mint.token_id);
             mint.token_id
         }
     }

@@ -1,0 +1,12 @@
+katana \
+    --dev \
+    --dev.no-fee \
+    --block-time 3000 \
+    --log.format "full" \
+    --http.cors_origins "*" \
+    --http.port 5050 \
+    --rpc.max-connections 10 \
+    --chain-id "GENSHIN TCG" \
+    --validate-max-steps 1000000 \
+    --invoke-max-steps 40000000 \
+    --db-dir database

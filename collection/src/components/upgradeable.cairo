@@ -1,35 +1,32 @@
 use starknet::ClassHash;
 
 #[starknet::interface]
-trait IUpgradeable<TContractState> {
+pub trait IUpgradeable<TContractState> {
     fn upgrade(ref self: TContractState, new_class_hash: ClassHash);
 }
 
-/// # Upgradeable Component
-///
-/// The Upgradeable component provides a mechanism to make a contract upgradeable.
 #[starknet::component]
-mod UpgradeableComponent {
+pub mod UpgradeableComponent {
     use starknet::ClassHash;
     use starknet::SyscallResultTrait;
     use tcg_collection::components::ownable::OwnableComponent;
     use tcg_collection::components::ownable::OwnableComponent::OwnableInternalImpl;
 
     #[storage]
-    struct Storage {}
+    pub struct Storage {}
     
     #[derive(Drop, PartialEq, starknet::Event)]
-    struct Upgraded {
+    pub struct Upgraded {
         class_hash: ClassHash
     }
 
     #[event]
     #[derive(Drop, PartialEq, starknet::Event)]
-    enum Event {
+    pub enum Event {
         Upgraded: Upgraded
     }
 
-    mod Errors {
+    pub mod Errors {
         const INVALID_CLASS: felt252 = 'Class hash cannot be zero';
     }
 
@@ -47,7 +44,7 @@ mod UpgradeableComponent {
     }
 
     #[generate_trait]
-    impl UpgradeableInternalImpl<
+    pub impl UpgradeableInternalImpl<
         TContractState, +HasComponent<TContractState>
     > of InternalTrait<TContractState> {
         fn _upgrade(ref self: ComponentState<TContractState>, new_class_hash: ClassHash) {

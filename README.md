@@ -1,2 +1,0 @@
-# genshin-tcg
-# genshin-tcg

@@ -6,6 +6,6 @@ pub mod contracts {
     pub mod collection;
 }
 pub mod models {
-    pub mod mint_info;
+    pub mod mint;
 }
 pub mod constants;

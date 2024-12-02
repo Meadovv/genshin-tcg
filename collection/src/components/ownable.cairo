@@ -11,7 +11,7 @@ pub mod OwnableComponent {
 
     use starknet::{ContractAddress, get_caller_address};
 
-    mod Errors {
+    pub mod Errors {
         pub const UNAUTHORIZED: felt252 = 'Not owner';
         pub const ZERO_ADDRESS_OWNER: felt252 = 'Owner cannot be zero';
         pub const ZERO_ADDRESS_CALLER: felt252 = 'Caller cannot be zero';
@@ -19,7 +19,7 @@ pub mod OwnableComponent {
 
     #[storage]
     struct Storage {
-        owner: ContractAddress,
+        pub owner: ContractAddress,
     }
 
     #[derive(Drop, Debug, PartialEq, starknet::Event)]

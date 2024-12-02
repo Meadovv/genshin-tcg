@@ -1,22 +1,29 @@
 [world]
 name = "Genshin TCG"
 description = "Genshin TCG is a trading card game based on the popular game Genshin Impact."
-cover_uri = "https://assets.starksailor.net/starksailor/upload/cover.png"
-icon_uri = "https://assets.starksailor.net/starksailor/upload/icon.png"
-website = "https://starksailor.net/"
+cover_uri = "https://raw.githubusercontent.com/Meadovv/genshin-tcg/main/game/assets/cover.jpeg"
+icon_uri = "https://raw.githubusercontent.com/Meadovv/genshin-tcg/main/game/assets/icon.webp"
+website = "https://genshintcg.xyz/"
 seed = "genshin_tcg"
 
 [world.socials]
+x = "https://twitter.com/genshinTCG"
+discord = "https://discord.gg/ejE7vCuR"
 github = "https://github.com/Meadovv/genshin-tcg"
+telegram = "https://t.me/dojoengine"
 
 [namespace]
 default = "genshin_tcg"
 
 [env]
-rpc_url = ""
-account_address = ""
-private_key = ""
-# world_address = ""   # Update this line with your world address
+rpc_url = "http://localhost:5050"
+account_address = "0x127fd5f1fe78a71f8bcd1fec63e3fe2f0486b6ecd5c86a0466c3a21fa5cfcec"
+private_key = "0xc5b2fcab997346f3ea1c00b002ecf6f382c5f9c9659a3894eb783c5320f912"
+world_address = "0x05b62653f707db7dda09cd1954134781596bbf562308783f64b19e7be194ea2d"
+
+historical_events = ["stark_sailor-CombatFinishedEvent", "stark_sailor-MovedEvent"]
 
 [writers]
-"stark_sailor" = ["stark_sailor-actions"]
+"stark_sailor" = [
+    "genshin_tcg-actions"
+]
