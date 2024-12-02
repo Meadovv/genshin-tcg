@@ -1,0 +1,25 @@
+[world]
+name = "Genshin TCG"
+description = "Genshin TCG is a trading card game based on the popular game Genshin Impact."
+cover_uri = "https://assets.starksailor.net/starksailor/upload/cover.png"
+icon_uri = "https://assets.starksailor.net/starksailor/upload/icon.png"
+website = "https://starksailor.net/"
+seed = "genshin_tcg"
+
+[world.socials]
+github = "https://github.com/Meadovv/genshin-tcg"
+
+[namespace]
+default = "genshin_tcg"
+
+[env]
+rpc_url = "https://api.cartridge.gg/x/genshin-tcg-v1/katana"
+account_address = "0x127fd5f1fe78a71f8bcd1fec63e3fe2f0486b6ecd5c86a0466c3a21fa5cfcec"
+private_key = "0xc5b2fcab997346f3ea1c00b002ecf6f382c5f9c9659a3894eb783c5320f912"
+world_block = ""
+world_address = ""   # Update this line with your world address
+
+historical_events = ["stark_sailor-CombatFinishedEvent", "stark_sailor-MovedEvent"]
+
+[writers]
+"stark_sailor" = ["stark_sailor-actions"]

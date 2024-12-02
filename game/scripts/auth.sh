@@ -1,0 +1,1 @@
+sozo --profile release auth grant writer stark_sailor,stark_sailor-actions
